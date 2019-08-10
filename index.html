@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Australian Weather Visualisation</title>
+</head>
+<body>
+<h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.dbs.ie/"><img alt="" src="https://debi0509.github.io/logo.jpg" style="width: 210px; height: 137px;" /></a></h2>
+
+<h2 style="text-align: center;">Australian Weather Visualisation</h2>
+
+<p>Group Snapshot:</p>
+
+<p>&nbsp;&nbsp;&nbsp; Amit Sharma (10510235)</p>
+
+<p>&nbsp;&nbsp;&nbsp; Md. Zeeshan Rafi (10512770)</p>
+
+<p>&nbsp;&nbsp;&nbsp; Debi Prasad Das (10515388)</p>
+
+<h1>Introduction:</h1>
+
+<p>When it comes to business and big data, more isn&rsquo;t always better. This is because raw data, when captured and stored in data silos, isn&rsquo;t valuable unless it&rsquo;s being broken down, evaluated, and acted upon. It&rsquo;s been suggested that as little as 1% of the world&rsquo;s data is effectively analyzed, with the rest either being captured and held indefinitely or never captured at all. And as the amount of data being created on a daily basis grows from year to year, ever more valuable information is slipping through the cracks. However, perhaps even more troublesome is when data is properly analyzed, and nonetheless still goes to waste. Bad data, which is to say data that is either inaccurate or incorrectly analyzed, has been shown to cost businesses as much as 25% of their revenue in certain situations.But it doesn&rsquo;t have to be this way. Often, getting the most out of analyzed data is simply a matter of understanding data visualization. This is assignment for us is a small attempt to enhance, increase and present our skillset and expertise in interactive data visualisation</p>
+
+<h1>Dataset Selection:</h1>
+
+<p>For the exploration of interactive visualization, we have selected the <strong>Rain in Australia&nbsp;dataset</strong> which can be downloaded by <a href="https://www.kaggle.com/jsphyg/weather-dataset-rattle-package">this</a> link.&nbsp;</p>
+
+<h2>Context</h2>
+
+<p>Predict whether or not it will rain tomorrow by training a binary classification model on target RainTomorrow</p>
+
+<h2>Content</h2>
+
+<p>This dataset contains daily weather observations from numerous Australian weather stations.The target variable RainTomorrow means: Did it rain the next day? Yes or No.</p>
+
+<h2>Columns</h2>
+
+<p>Date - The date of observation.</p>
+
+<p>Location - The common name of the location of the weather station.</p>
+
+<p>MinTemp - The minimum temperature in degrees celsius.</p>
+
+<p>MaxTemp - The maximum temperature in degrees celsius.</p>
+
+<p>Rainfall - The amount of rainfall recorded for the day in mm.</p>
+
+<p>Evaporation - The so-called Class A pan evaporation (mm) in the 24 hours to 9am.</p>
+
+<p>Sunshine - The number of hours of bright sunshine in the day.</p>
+
+<p>WindGustDir - The direction of the strongest wind gust in the 24 hours to midnight.</p>
+
+<p>WindGustSpeed - The speed (km/h) of the strongest wind gust in the 24 hours to midnight.</p>
+
+<p>WindDir9am - Direction of the wind at 9am.</p>
+
+<p>WindDir3pm - Direction of the wind at 3pm.</p>
+
+<p>WindSpeed9am - Wind speed (km/hr) averaged over 10 minutes prior to 9am.</p>
+
+<p>WindSpeed3pm - Wind speed (km/hr) averaged over 10 minutes prior to 3pm.</p>
+
+<p>Humidity9am - Humidity (percent) at 9am.</p>
+
+<p>Humidity3pm - Humidity (percent) at 3pm.</p>
+
+<p>Pressure9am - Atmospheric pressure (hpa) reduced to mean sea level at 9am.</p>
+
+<p>Pressure3pm - Atmospheric pressure (hpa) reduced to mean sea level at 3pm.</p>
+
+<p>Cloud9am - Fraction of sky obscured by cloud at 9am. This is measured in &quot;oktas&quot;, which are a unit of eigths. It records how many eigths of the sky are obscured by cloud. A 0 measure indicates completely clear sky whilst an 8 indicates that it is completely overcast.</p>
+
+<p>Cloud3pm - Fraction of sky obscured by cloud (in &quot;oktas&quot;: eighths) at 3pm. See Cload9am for a description of the values.</p>
+
+<p>Temp9am - Temperature (degrees C) at 9am.</p>
+
+<p>Temp3pm - Temperature (degrees C) at 3pm.</p>
+
+<p>RainToday - Boolean: 1 if precipitation (mm) in the 24 hours to 9am exceeds 1mm, otherwise 0.</p>
+
+<p>RISK_MM - The amount of next day rain in mm. Used to create response variable RainTomorrow. A kind of measure of the &quot;risk&quot;.</p>
+
+<p>RainTomorrow - The target variable. Did it rain tomorrow?</p>
+
+<h1>Why is this dataset ?</h1>
+
+<ul>
+	<li>RISKMM is the amount of rainfall in millimeters for the next day. It includes all forms of precipitation that reach the ground, such as rain, drizzle, hail and snow. And it was the column that was used to determine whether or not it rained to create the binary target. For example, if RISKMM was greater than 0, then the RainTomorrow target variable is equal to Yes.&nbsp;</li>
+	<li>Since it contains information about the future, and since it contains information directly about the target variable, including it would leak the future information to your model. Using it as a predictor to build a model and then testing on this dataset would give the false appearance of a high accuracy.</li>
+	<li>It is included in the dataset so that if you wanted to create your own binary target and decide that really a small amount of rain like 0.1 mm shouldn&#39;t be counted as a rainstorm, you could try predicting only more significant amounts of rain.&nbsp;</li>
+	<li>It&#39;s also included in the dataset so that, if you wanted to, you could use the dataset to build a regression machine learning model -- instead of classification. In other words, you can use RISK_MM as your target and drop RainTomorrow if you want to treat this as a regression problem instead of a classification problem.&nbsp;</li>
+</ul>
+
+<h1>Applications Used:</h1>
+
+<p>For this assignment we have used python programing. For better visualisations we have also used libraries such as; bokeh, matplot, plotly, altair. For density graph we have used R programming.</p>
+
+<h1>Data Visualisation:</h1>
+
+<h3>Visualisation 1</h3>
+
+<p>The 1st interactive visualisation was created in form a bokeh plot which outputs an html file. Please click on the below image to open the html file.</p>
+
+<p><a href="https://debi0509.github.io/Australia Weather Summary.html"><img alt="" src="https://debi0509.github.io/Weather.jpg" /></a></p>
+
+<p>This graph displays the variation in weather parameters such as; minimum and maximum temperature of the day, Rainfall and windspeed. It is observed that minimum temperature varies approximately between 0 to 20 while maximum temperature varies between 20 - 40 each year. Hence it can be concluded that temperature is almost consistent across the years.</p>
+
+<p>Furthermore, rainfall is recorded to be the highest in 2013 and lowest before 2010 and after 2016.Windspeed is varying between 10 - 60 across the year while it was recorded to be the highest in 2010.</p>
+
+<div>Features for this graph are:</div>
+
+<div>&bull;<span style="white-space:pre"> Box </span>Zoom&nbsp;(can be zoomed to see the details per date and time of the day and&nbsp;across the years)</div>
+
+<div>&bull;<span style="white-space: pre;"> Wheel </span>Zoom</div>
+
+<div>&bull;<span style="white-space:pre"> </span>Interval Selection</div>
+
+<div>&bull;<span style="white-space:pre"> </span>Brush&nbsp;Selection</div>
+
+<div>&bull;<span style="white-space: pre;"> </span>Paning</div>
+
+<div>&bull;<span style="white-space:pre"> </span>Auto Scaling</div>
+
+<div>&bull;<span style="white-space:pre"> </span>Taking a screenshot of graph.&nbsp;</div>
+
+<div>&bull;<span style="white-space:pre"> </span>We have also provided save and reset option to help the users save and restore the graph as required.</div>
+
+<div>&bull;<span style="white-space: pre;"> </span>Additionally an option to learn more about bokeh plot.</div>
+
+<div>&nbsp;</div>
+
+<h3>Visualisation 2</h3>
+
+<p>The 2nd visualisation is an interactive&nbsp;scatter plot showing the weather type for each location when mouse is scrolled over a dot. Click on the below image to view the interactive visualisation.</p>
+
+<p><a href="https://colab.research.google.com/drive/1ZMofKyRKUunybQy_Qq9URF3pFad0Krrx"><img alt="" src="https://debi0509.github.io/visualization.svg" style="width: 804px; height: 449px;" /></a></p>
+
+<div>Features for this graph are:</div>
+
+<div>&bull;<span style="white-space: pre;"> Multi-field </span>Interval Selection</div>
+
+<div>&bull;<span style="white-space: pre;"> Details on demand (Tooltip)</span></div>
+
+<h3>Visualisation 3</h3>
+
+<p>The below is a heatmap produced with all the factors those put an effect/impact on weather and the measure over a period of time for better analysis.</p>
+
+<p><img alt="" src="https://debi0509.github.io/hestmap.jpg" /></p>
+
+<h3>Visualisation 4</h3>
+
+<p>The below visualisation is a density graph of rainfall across Australia. This plot was produced in R to have a 3-D&nbsp;like visualisation for better accumulation.</p>
+
+<p><img alt="" src="https://debi0509.github.io/All_Cities.jpeg" style="width: 555px; height: 354px;" /><a href="https://debi0509.github.io/Sydney.jpeg"><img alt="" src="https://debi0509.github.io/Sydney.jpeg" style="width: 555px; height: 354px;" /></a><a href="https://debi0509.github.io/Melbourne.jpeg"><img alt="" src="https://https://debi0509.github.io/Melbourne.jpeg" /></a><a href="https://debi0509.github.io/Melbourne.jpeg"><img alt="" src="https://debi0509.github.io/Melbourne.jpeg" style="width: 555px; height: 354px;" /></a><a href="https://debi0509.github.io/Adelaide.jpeg"><img alt="" src="https://debi0509.github.io/Adelaide.jpeg" /></a><a href="https://debi0509.github.io/Adelide.jpeg"><img alt="" src="https://debi0509.github.io/Adelide.jpeg" style="width: 555px; height: 354px;" /></a><a href="https://debi0509.github.io/Perth.jpeg"><img alt="" src="https://debi0509.github.io/Perth.jpeg" style="width: 555px; height: 354px;" /></a><a href="https://debi0509.github.io/Brisbane.jpeg"><img alt="" src="https://debi0509.github.io/Brisbane.jpeg" style="width: 555px; height: 354px;" /></a></p>
+
+<h3>Visualisation 5</h3>
+
+<p>This is the final visualisation to predict whether people need an umbrella tomorrow or not. Below is the visualisation to explain the same.</p>
+
+<p><a href="https://debi0509.github.io/Rain_Tomorrow.jpg"><img alt="" src="https://debi0509.github.io/Rain_Tomorrow.jpg" style="width: 776px; height: 696px;" /></a></p>
+
+<h1>Contribution of Team members:</h1>
+
+<p>As it was a group assignment and not individual assignment, all the group members worked hard together right from selecting the dataset to deploying the application github and create the webpage, and there was an equal contribution from every single member of the team. Tasks such as; dataset selection, data preparation, creating different visualisations and building the webpage etc. were divided individually and handled to reach the timeline and goal of the assignment. There were multiple meetings and discussions conducted to reach on a decision as a group/team.</p>
+
+<p>The whole development process including the webpage creation took us around 50 people hours including the meetings, discussions and research on coding practice and learning different tools and libraries. Getting on to a team approach was the most crucial and critical approach which took the measurable time along with the visualisations which were made interactive (Especially <strong>Visualisation 1 </strong>as it was an highly interactive plot in an html file).</p>
+
+<p>By having this assignment we&nbsp;not only got to learn data visualisation but also how to work in a team where we can get a lot of agreement/disagreement/opinions/concerns/challenges and overcome those with our team&rsquo;s support.</p>
+
+<p>&nbsp;</p>
+</body>
+</html>
